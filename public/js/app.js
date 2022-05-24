@@ -2,7 +2,8 @@ const weatherForm = document.querySelector("form")
 const searchButton = document.querySelector("input")
 const messageOne = document.querySelector("#message-1")
 const messageTwo = document.querySelector("#message-2")
-
+const messageThree = document.querySelector("#message-3")
+const weatherIcon = document.querySelector("#weather-icon")
 
 
 weatherForm.addEventListener("submit",(e)=>{
@@ -17,9 +18,12 @@ weatherForm.addEventListener("submit",(e)=>{
         if(data.error){
             messageOne.textContent = data.error
         } else {
-            messageOne.textContent = data.location
+            weatherIcon.src = data.forecastData.icon
+            messageOne.textContent = data.location 
             console.log(data.forecastData)
-            messageTwo.textContent = "The current temperature outside is "+data.forecastData.temperature+"ºC, it feels like "+data.forecastData.feelsLike+"ºC and there's a "+data.forecastData.rainChance+"% chance of it raining today."
+            messageTwo.textContent = data.forecastData.description+data.forecastData.temperature
+            messageThree.textContent=data.forecastData.feelsLike+data.forecastData.rainChance+data.forecastData.humidity
+            
         }
     })
 })

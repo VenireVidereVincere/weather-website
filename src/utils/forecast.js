@@ -9,9 +9,12 @@ const forecast=(longitude,latitude,callback)=>{
             callback("Location not supported or not found!",undefined)
         } else{
             callback(undefined,{
-                temperature:body.current.temperature,
-                feelsLike: body.current.feelslike,
-                rainChance: body.current.precip
+                icon:body.current.weather_icons[0],
+                humidity:" with "+body.current.humidity+"% of humidity in the air.",
+                description:"It will be "+body.current.weather_descriptions[0] + " outside throughout the day",
+                temperature:" with a temperature of " +body.current.temperature +"ºC.",
+                feelsLike: "It might feel like " +body.current.feelslike+ "ºC due to the weather conditions, ",
+                rainChance: "and there is a "+body.current.precip+"% chance of it raining"
             })    
         }
     })

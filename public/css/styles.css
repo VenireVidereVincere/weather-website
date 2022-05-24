@@ -7,6 +7,7 @@ body {
     display:flex;
     flex-direction:column;
     min-height: 100vh;
+    font-size:18px
 }
 
 footer {
@@ -27,9 +28,10 @@ h1 {
 }
 
 header a {
-    color:#888888;
+    color:#5e5e5e;
     margin-right: 16px;
     text-decoration:none;
+    font-size:16px
 }
 
 .portrait {
